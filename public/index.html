@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mallorca Property Experts — Luxury Real Estate</title>
+  <meta name="description" content="Discover exceptional properties in Mallorca. Villas, fincas, and penthouses curated by specialists who know the island.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       MARTA Landing Page â Mallorca Property Experts
+       Palette: Deep navy, warm gold, cream, stone
+       Patched: visual refinement pass (sections 1â10)
+       ========================================= */
+
+    :root {
+      --navy: #0C1B2E;
+      --navy-light: #162D4A;
+      --gold: #C5A55A;
+      --gold-light: #D4BA7A;
+      --gold-muted: rgba(197, 165, 90, 0.15);
+      --cream: #FAF7F2;
+      --stone: #E8E2D8;
+      --stone-dark: #B5AD9F;
+      --text-primary: #1A1A2E;
+      --text-secondary: #5A5A6E;
+      --text-light: #8A8A9A;
+      --white: #FFFFFF;
+      --shadow-soft: 0 4px 24px rgba(12, 27, 46, 0.08);
+      --shadow-medium: 0 8px 40px rgba(12, 27, 46, 0.12);
+      --radius: 2px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      color: var(--text-primary);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ---- Selection ---- */
+
+    ::selection {
+      background: rgba(197, 165, 90, 0.25);
+      color: var(--navy);
+    }
+
+    /* ---- Focus states ---- */
+
+    a:focus-visible,
+    button:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .nav-cta:focus-visible,
+    .open-chat-btn:focus-visible,
+    .marta-chat-toggle:focus-visible,
+    .marta-chat-send:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+    /* ---- Typography ---- */
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ---- Layout ---- */
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 7rem 0;
+    }
+
+    /* ---- Navigation ---- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      background: var(--navy);
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+
+    nav.scrolled {
+      background: rgba(250, 247, 242, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(12, 27, 46, 0.06);
+      padding: 0.75rem 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav.scrolled .logo { color: var(--navy); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232, 226, 216, 0.7);
+      text-decoration: none;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    nav.scrolled .nav-links a { color: var(--text-secondary); }
+    nav.scrolled .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.75rem;
+      background: var(--gold);
+      color: var(--navy) !important;
+      border-radius: var(--radius);
+      font-size: 0.72rem !important;
+      font-weight: 500;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase;
+      transition: background var(--transition) !important;
+      cursor: pointer;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    /* Scrolled: gold-on-cream fails contrast, so switch to navy/cream */
+    nav.scrolled .nav-cta { background: var(--navy) !important; color: var(--cream) !important; }
+    nav.scrolled .nav-cta:hover { background: var(--navy-light) !important; color: var(--cream) !important; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    nav.scrolled .mobile-toggle span {
+      background: var(--navy);
+    }
+
+    /* ---- Hero ---- */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(12, 27, 46, 0.92) 0%, rgba(12, 27, 46, 0.6) 50%, rgba(12, 27, 46, 0.4) 100%);
+      z-index: 1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900"><defs><linearGradient id="g1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" stop-color="%231a3a5c"/><stop offset="50%25" stop-color="%230c1b2e"/><stop offset="100%25" stop-color="%23162d4a"/></linearGradient></defs><rect fill="url(%23g1)" width="1440" height="900"/><circle cx="1100" cy="200" r="300" fill="%23c5a55a" opacity="0.03"/><circle cx="200" cy="600" r="400" fill="%23c5a55a" opacity="0.02"/></svg>') center/cover no-repeat;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    .hero-content {
+      animation: fadeSlideUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(232, 226, 216, 0.75);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(197, 165, 90, 0.25);
+    }
+
+    .hero-stat {
+      text-align: left;
+    }
+
+    .hero-stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(181, 173, 159, 0.8);
+    }
+
+    .hero-visual {
+      position: relative;
+      animation: fadeSlideUp 1s ease-out 0.3s both;
+    }
+
+    .hero-card {
+      background: rgba(250, 247, 242, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(197, 165, 90, 0.2);
+      border-radius: 4px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Placeholder image strip at top of card */
+    .hero-card::before {
+      content: '';
+      display: block;
+      height: 180px;
+      background: linear-gradient(135deg, rgba(22, 45, 74, 0.6) 0%, rgba(197, 165, 90, 0.12) 100%);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+    }
+
+    .hero-card-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 1px;
+      z-index: 1;
+    }
+
+    .hero-card-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      padding: 1.75rem 2rem 0;
+    }
+
+    .hero-card h3 {
+      font-size: 1.7rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+      padding: 0 2rem;
+    }
+
+    .hero-card-location {
+      font-size: 0.85rem;
+      color: var(--stone-dark);
+      margin-bottom: 1.5rem;
+      padding: 0 2rem;
+    }
+
+    .hero-card-details {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+      border-top: 1px solid rgba(197, 165, 90, 0.1);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card-detail {
+      font-size: 0.8rem;
+      color: var(--stone-dark);
+    }
+
+    .hero-card-detail strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .hero-card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      color: var(--gold);
+      padding: 0 2rem 2rem;
+    }
+
+    /* ---- Services ---- */
+
+    .services {
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-top: 0.75rem;
+      color: var(--navy);
+    }
+
+    .section-header p {
+      margin-top: 1rem;
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2.75rem 2.5rem;
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(12, 27, 46, 0.06);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      border-radius: var(--radius);
+      margin-bottom: 1.75rem;
+      color: var(--gold);
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.85rem;
+      color: var(--navy);
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* ---- How It Works / Chat CTA ---- */
+
+    .chat-cta {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chat-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 165, 90, 0.06) 0%, transparent 70%);
+    }
+
+    .chat-cta .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .chat-cta-content {
+      color: var(--cream);
+    }
+
+    .chat-cta-content .eyebrow {
+      color: var(--gold);
+    }
+
+    .chat-cta-content h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--cream);
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .chat-cta-content p {
+      color: var(--stone-dark);
+      max-width: 460px;
+      margin-bottom: 2rem;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(197, 165, 90, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .step-text h4 {
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-text p {
+      font-size: 0.85rem;
+      color: var(--stone-dark);
+      margin: 0;
+    }
+
+    .chat-demo-area {
+      background: rgba(250, 247, 242, 0.04);
+      border: 1px solid rgba(197, 165, 90, 0.12);
+      border-radius: 6px;
+      padding: 2.25rem;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-demo-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .chat-demo-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .chat-demo-name {
+      font-size: 0.85rem;
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    .chat-demo-status {
+      font-size: 0.7rem;
+      color: var(--gold);
+    }
+
+    .chat-demo-messages {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .chat-msg {
+      max-width: 82%;
+      padding: 1rem 1.3rem;
+      border-radius: 4px;
+      font-size: 0.87rem;
+      line-height: 1.65;
+      animation: fadeSlideUp 0.6s ease-out both;
+    }
+
+    .chat-msg.bot {
+      background: rgba(197, 165, 90, 0.08);
+      color: var(--cream);
+      border-left: 2px solid var(--gold);
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      background: rgba(250, 247, 242, 0.08);
+      color: var(--stone);
+      align-self: flex-end;
+    }
+
+    .chat-msg:nth-child(2) { animation-delay: 0.8s; }
+    .chat-msg:nth-child(3) { animation-delay: 1.6s; }
+    .chat-msg:nth-child(4) { animation-delay: 2.4s; }
+
+    .open-chat-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.95rem 2.25rem;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      margin-top: 2.75rem;
+    }
+
+    .open-chat-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .open-chat-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ---- Territories ---- */
+
+    .territories {
+      background: var(--cream);
+    }
+
+    .territory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+
+    .territory-card {
+      position: relative;
+      padding: 2.25rem 2rem;
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-radius: var(--radius);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+
+    .territory-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(12, 27, 46, 0.06);
+    }
+
+    .territory-region {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .territory-card h3 {
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .territory-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .territory-towns {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--stone);
+      font-size: 0.78rem;
+      color: var(--text-light);
+      letter-spacing: 0.01em;
+    }
+
+    /* ---- Footer ---- */
+
+    footer {
+      background: var(--navy);
+      padding: 5rem 0 2.5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+    }
+
+    .footer-brand .logo {
+      color: var(--cream);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--stone-dark);
+      max-width: 300px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 4rem;
+    }
+
+    .footer-col h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--stone-dark);
+      text-decoration: none;
+      margin-bottom: 0.6rem;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2.5rem;
+      font-size: 0.75rem;
+      color: rgba(181, 173, 159, 0.6);
+    }
+
+    .footer-legal a {
+      color: var(--stone-dark);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color var(--transition);
+    }
+
+    .footer-legal a:hover { color: var(--cream); }
+
+    /* ---- Animations ---- */
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Marta Chat Component ---- */
+
+    .marta-chat-toggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(12, 27, 46, 0.15), 0 2px 6px rgba(12, 27, 46, 0.08);
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .marta-chat-toggle:hover {
+      background: var(--gold-light);
+      transform: scale(1.05);
+      box-shadow: 0 6px 24px rgba(12, 27, 46, 0.18), 0 2px 8px rgba(12, 27, 46, 0.1);
+    }
+
+    .marta-chat-toggle svg {
+      width: 24px;
+      height: 24px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .marta-chat-toggle .icon-close { position: absolute; opacity: 0; transform: rotate(-90deg); }
+    .marta-chat-toggle.active .icon-chat { opacity: 0; transform: rotate(90deg); }
+    .marta-chat-toggle.active .icon-close { opacity: 1; transform: rotate(0); }
+
+    .marta-chat-panel {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.5rem;
+      z-index: 899;
+      width: 400px;
+      height: 580px;
+      background: var(--cream);
+      border-radius: 4px;
+      box-shadow: 0 16px 56px rgba(12, 27, 46, 0.2), 0 0 0 1px rgba(12, 27, 46, 0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(12px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .marta-chat-panel.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .marta-chat-header {
+      background: var(--navy);
+      padding: 1.15rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .marta-chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .marta-chat-header-text { flex: 1; }
+
+    .marta-chat-header-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .marta-chat-header-status {
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+
+    .marta-chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      scroll-behavior: smooth;
+    }
+
+    .marta-chat-messages::-webkit-scrollbar { width: 4px; }
+    .marta-chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .marta-chat-messages::-webkit-scrollbar-thumb { background: var(--stone); border-radius: 2px; }
+
+    .marta-msg {
+      max-width: 85%;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      font-size: 0.87rem;
+      line-height: 1.65;
+      animation: msgFadeIn 0.3s ease-out;
+    }
+
+    @keyframes msgFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .marta-msg.bot {
+      align-self: flex-start;
+      background: var(--white);
+      color: var(--text-primary);
+      border: 1px solid var(--stone);
+      border-left: 2px solid var(--gold);
+    }
+
+    .marta-msg.user {
+      align-self: flex-end;
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    /* Markdown rendering inside bot messages */
+    .marta-msg.bot p { margin: 0 0 0.5em; }
+    .marta-msg.bot p:last-child { margin-bottom: 0; }
+    .marta-msg.bot strong { font-weight: 500; color: var(--navy); }
+    .marta-msg.bot ul, .marta-msg.bot ol { margin: 0.4em 0; padding-left: 1.4em; }
+    .marta-msg.bot li { margin-bottom: 0.25em; }
+    .marta-msg.bot a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .marta-msg.bot a:hover { color: var(--gold-light); }
+    .marta-msg.bot code { background: var(--stone); padding: 0.1em 0.35em; border-radius: 2px; font-size: 0.82em; }
+
+    .marta-typing {
+      align-self: flex-start;
+      display: flex;
+      gap: 4px;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--stone);
+      border-left: 2px solid var(--gold);
+      border-radius: 4px;
+    }
+
+    .marta-typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--stone-dark);
+      animation: typingDot 1.2s infinite;
+    }
+
+    .marta-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .marta-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingDot {
+      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-3px); }
+    }
+
+    .marta-chat-input-area {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid var(--stone);
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+      background: var(--cream);
+      flex-shrink: 0;
+    }
+
+    .marta-chat-input {
+      flex: 1;
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      padding: 0.6rem 0.85rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: var(--text-primary);
+      background: var(--white);
+      resize: none;
+      min-height: 40px;
+      max-height: 120px;
+      line-height: 1.5;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .marta-chat-input::placeholder { color: var(--text-light); }
+    .marta-chat-input:focus { border-color: var(--gold); }
+
+    .marta-chat-send {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      border: none;
+      background: var(--navy);
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .marta-chat-send:hover { background: var(--navy-light); }
+    .marta-chat-send:disabled { background: var(--stone-dark); cursor: default; }
+    .marta-chat-send svg { width: 18px; height: 18px; }
+
+    /* ---- Responsive ---- */
+
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+
+      .hero-stats { justify-content: center; }
+
+      .hero-visual { max-width: 500px; margin: 0 auto; }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .chat-cta .container { grid-template-columns: 1fr; }
+
+      .chat-demo-area { max-width: 500px; margin: 0 auto; }
+
+      .territory-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 4rem 0; }
+
+      .marta-chat-panel {
+        width: calc(100vw - 2rem);
+        height: calc(100dvh - 7rem);
+        right: 1rem;
+        bottom: 5rem;
+        border-radius: 4px;
+      }
+
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 8px 32px rgba(12, 27, 46, 0.3);
+      }
+
+      .nav-links.open a {
+        color: rgba(232, 226, 216, 0.7);
+      }
+
+      .nav-links.open a:hover {
+        color: var(--cream);
+      }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .hero-stats { flex-direction: column; gap: 1.5rem; align-items: center; }
+
+      .territory-grid { grid-template-columns: 1fr; }
+
+      .footer-content { flex-direction: column; gap: 2rem; }
+      .footer-links { gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo">Mallorca <span>Property Experts</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#territories">Areas</a></li>
+        <li><a href="#" class="nav-cta" id="navChatBtn">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Speak with Marta
+        </a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <p class="eyebrow">Luxury Real Estate in Mallorca</p>
+        <h1>Find your <em>exceptional</em> property on the island</h1>
+        <p class="hero-subtitle">
+          Tell us what you're looking for. Our AI concierge curates the properties
+          worth seeing and arranges private viewings on your schedule.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">225+</div>
+            <div class="hero-stat-label">Properties</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">Island–wide</div>
+            <div class="hero-stat-label">Coverage</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">24/7</div>
+            <div class="hero-stat-label">Concierge</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-badge">Featured</div>
+          <div class="hero-card-label">Latest Listing</div>
+          <h3>Seafront Villa with Infinity Pool</h3>
+          <p class="hero-card-location">Port d'Andratx, Southwest Mallorca</p>
+          <div class="hero-card-details">
+            <div class="hero-card-detail"><strong>5</strong> bed</div>
+            <div class="hero-card-detail"><strong>4</strong> bath</div>
+            <div class="hero-card-detail"><strong>420</strong> m²</div>
+            <div class="hero-card-detail"><strong>1,200</strong> m² plot</div>
+          </div>
+          <div class="hero-card-price">€4,850,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">How We Help</p>
+        <h2>A personal approach to exceptional properties</h2>
+        <p>From first inquiry to closing, our team and AI concierge work together to find exactly what you're looking for.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>AI-Powered Search</h3>
+          <p>Describe your ideal property in natural language. Marta understands your needs, matches you with listings, and refines results as your preferences evolve — in your language.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Effortless Viewings</h3>
+          <p>Book private viewings directly through the chat. Marta checks your agent's real-time availability and handles all the coordination — confirmations, reminders, and rescheduling.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Local Expertise</h3>
+          <p>Four specialist agents covering every corner of Mallorca. Each knows their territory intimately — from Andratx's cliffside villas to Pollença's historic townhouses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat CTA -->
+  <section class="chat-cta" id="contact">
+    <div class="container">
+      <div class="chat-cta-content reveal">
+        <p class="eyebrow">Start a Conversation</p>
+        <h2>Meet Marta, your property concierge</h2>
+        <p>Our AI assistant is available around the clock to help you explore properties, understand the Mallorcan market, and arrange viewings.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Tell us what you're looking for</h4>
+              <p>Budget, location, property type — share as much or as little as you like.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Receive curated matches</h4>
+              <p>Marta searches our portfolio and presents properties tailored to your criteria.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Book a private viewing</h4>
+              <p>Choose a time that works. Your assigned agent will meet you at the property.</p>
+            </div>
+          </div>
+        </div>
+        <button class="open-chat-btn" id="openChatBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Chat with Marta Now
+        </button>
+      </div>
+      <div class="chat-demo-area reveal">
+        <div class="chat-demo-header">
+          <div class="chat-demo-avatar">M</div>
+          <div>
+            <div class="chat-demo-name">Marta</div>
+            <div class="chat-demo-status">Online — replies instantly</div>
+          </div>
+        </div>
+        <div class="chat-demo-messages">
+          <div class="chat-msg bot">
+            Welcome to Mallorca Property Experts! I'm Marta, your AI property concierge. How can I help you today?
+          </div>
+          <div class="chat-msg user">
+            We're looking for a villa in the southwest, 4+ bedrooms, sea views, budget around €3M.
+          </div>
+          <div class="chat-msg bot">
+            I've found 8 properties matching your criteria in Andratx, Calvià, and Bendinat. I'll prepare a shortlist with the top matches. Would you like to see them now, or shall I also check availability for viewings this week?
+          </div>
+          <div class="chat-msg user">
+            Show me the top 3 and let's book viewings for Friday.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Territories -->
+  <section class="territories" id="territories">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="eyebrow">Our Coverage</p>
+        <h2>Across every corner of the island</h2>
+        <p>From the southwest cliffs to the eastern coves, we work the neighborhoods, market dynamics, and hidden gems that make each region distinct.</p>
+      </div>
+      <div class="territory-grid">
+        <div class="territory-card reveal">
+          <div class="territory-region">Southwest</div>
+          <h3>Cliffside Living</h3>
+          <p>Mallorca's most coveted addresses, where pine-clad cliffs meet the Mediterranean.</p>
+          <div class="territory-towns">Andratx · Calvià · Bendinat · Santa Ponça</div>
+        </div>
+        <div class="territory-card reveal">
+          <div class="territory-region">North</div>
+          <h3>The Tramuntana</h3>
+          <p>UNESCO mountains tumbling into hidden bays. Old-world villages and quiet luxury.</p>
+          <div class="territory-towns">Pollença · Alcúdia · Sóller · Fornalutx</div>
+        </div>
+        <div class="territory-card reveal">
+          <div class="territory-region">Southeast</div>
+          <h3>Hidden Coves</h3>
+          <p>Hidden calas, protected coastline, and the unhurried rhythm of rural Mallorca.</p>
+          <div class="territory-towns">Santanyí · Felanitx · Manacor · Artà</div>
+        </div>
+        <div class="territory-card reveal">
+          <div class="territory-region">Center &amp; Palma</div>
+          <h3>The Capital</h3>
+          <p>The cultural heart of the island — historic Palma and the vineyard country beyond.</p>
+          <div class="territory-towns">Palma · Santa Maria · Alaró · Inca</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="logo">Mallorca <span>Property Experts</span></a>
+          <p class="footer-tagline">Connecting discerning buyers with exceptional properties across the island since 2020.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Properties</h4>
+            <a href="#">Villas</a>
+            <a href="#">Apartments</a>
+            <a href="#">Fincas</a>
+            <a href="#">Penthouses</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#">Property Search</a>
+            <a href="#">Viewings</a>
+            <a href="#">Legal Guidance</a>
+            <a href="#">After-Sales</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:hello@mallorcaproperty.com">hello@mallorcaproperty.com</a>
+            <a href="tel:+34971000000">+34 971 000 000</a>
+            <a href="#">Palma de Mallorca</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Mallorca Property Experts. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Notice</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Marta Chat Component -->
+  <button class="marta-chat-toggle" id="chatToggle" aria-label="Open chat">
+    <svg class="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+
+  <div class="marta-chat-panel" id="chatPanel">
+    <div class="marta-chat-header">
+      <div class="marta-chat-avatar">M</div>
+      <div class="marta-chat-header-text">
+        <div class="marta-chat-header-name">Marta</div>
+        <div class="marta-chat-header-status">AI Property Concierge</div>
+      </div>
+    </div>
+    <div class="marta-chat-messages" id="chatMessages"></div>
+    <div class="marta-chat-input-area">
+      <textarea class="marta-chat-input" id="chatInput" placeholder="Describe your ideal property..." rows="1"></textarea>
+      <button class="marta-chat-send" id="chatSend" aria-label="Send message">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // =========================================
+      // Configuration
+      // =========================================
+
+      const WEBHOOK_URL = 'https://marta-n8n.propertyexperts.dev/webhook/marta-chat';
+      // ^ Placeholder — add a Webhook node to WF-01 in a separate session.
+      //   Expected request:  POST { session_id, message, channel }
+      //   Expected response: { output: "..." }
+
+      // =========================================
+      // Session
+      // =========================================
+
+      function getSessionId() {
+        let id = sessionStorage.getItem('marta_session_id');
+        if (!id) {
+          id = crypto.randomUUID();
+          sessionStorage.setItem('marta_session_id', id);
+        }
+        return id;
+      }
+
+      const sessionId = getSessionId();
+
+      // =========================================
+      // DOM refs
+      // =========================================
+
+      const toggle = document.getElementById('chatToggle');
+      const panel = document.getElementById('chatPanel');
+      const messages = document.getElementById('chatMessages');
+      const input = document.getElementById('chatInput');
+      const sendBtn = document.getElementById('chatSend');
+
+      // =========================================
+      // Toggle panel
+      // =========================================
+
+      function openPanel() {
+        panel.classList.add('open');
+        toggle.classList.add('active');
+        input.focus();
+      }
+
+      function closePanel() {
+        panel.classList.remove('open');
+        toggle.classList.remove('active');
+      }
+
+      function togglePanel() {
+        if (panel.classList.contains('open')) {
+          closePanel();
+        } else {
+          openPanel();
+        }
+      }
+
+      toggle.addEventListener('click', togglePanel);
+
+      // CTA buttons from page
+      document.getElementById('openChatBtn')?.addEventListener('click', openPanel);
+      document.getElementById('navChatBtn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        openPanel();
+      });
+
+      // =========================================
+      // Markdown rendering (lightweight)
+      // =========================================
+
+      function renderMarkdown(text) {
+        // Escape HTML
+        var html = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        // Bold: **text** or __text__
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/__(.+?)__/g, '<strong>$1</strong>');
+
+        // Italic: *text* or _text_ (not inside words)
+        html = html.replace(/(?<!\w)\*([^*]+?)\*(?!\w)/g, '<em>$1</em>');
+        html = html.replace(/(?<!\w)_([^_]+?)_(?!\w)/g, '<em>$1</em>');
+
+        // Inline code
+        html = html.replace(/`([^`]+?)`/g, '<code>$1</code>');
+
+        // Links: [text](url)
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+        // Unordered lists (lines starting with - or *)
+        html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
+        html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+
+        // Ordered lists (lines starting with 1. 2. etc.)
+        html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+        html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, function(match) {
+          // Only wrap in <ol> if not already wrapped
+          if (match.indexOf('<ul>') === -1 && match.indexOf('<ol>') === -1) {
+            return '<ol>' + match + '</ol>';
+          }
+          return match;
+        });
+
+        // Paragraphs: split on double newlines
+        html = html.replace(/\n\n+/g, '</p><p>');
+        // Single newlines to <br> (but not inside lists)
+        html = html.replace(/\n/g, '<br>');
+
+        return '<p>' + html + '</p>';
+      }
+
+      // =========================================
+      // Message rendering
+      // =========================================
+
+      function addMessage(text, sender) {
+        var div = document.createElement('div');
+        div.className = 'marta-msg ' + sender;
+        if (sender === 'bot') {
+          div.innerHTML = renderMarkdown(text);
+        } else {
+          div.textContent = text;
+        }
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div;
+      }
+
+      function showTyping() {
+        var div = document.createElement('div');
+        div.className = 'marta-typing';
+        div.id = 'typingIndicator';
+        div.innerHTML = '<span></span><span></span><span></span>';
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function hideTyping() {
+        var el = document.getElementById('typingIndicator');
+        if (el) el.remove();
+      }
+
+      // =========================================
+      // Send message
+      // =========================================
+
+      var sending = false;
+
+      async function sendMessage() {
+        var text = input.value.trim();
+        if (!text || sending) return;
+
+        sending = true;
+        sendBtn.disabled = true;
+        input.value = '';
+        input.style.height = 'auto';
+
+        addMessage(text, 'user');
+        showTyping();
+
+        try {
+          var res = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              session_id: sessionId,
+              message: text,
+              channel: 'web'
+            })
+          });
+
+          hideTyping();
+
+          if (!res.ok) {
+            addMessage('I\'m sorry, I\'m having trouble connecting right now. Please try again in a moment.', 'bot');
+            return;
+          }
+
+          var data = await res.json();
+          var reply = data.output || data.response || data.text || data.message || 'I received your message but couldn\'t generate a response. Please try again.';
+          addMessage(reply, 'bot');
+        } catch (err) {
+          hideTyping();
+          addMessage('Unable to reach the server. Please check your connection and try again.', 'bot');
+        } finally {
+          sending = false;
+          sendBtn.disabled = false;
+          input.focus();
+        }
+      }
+
+      sendBtn.addEventListener('click', sendMessage);
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      // Auto-resize textarea
+      input.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+      });
+
+      // =========================================
+      // Welcome messages
+      // =========================================
+
+      addMessage(
+        'Welcome to Mallorca Property Experts. I\'m **Marta** — I\'m here to help you find the right property on the island.',
+        'bot'
+      );
+      setTimeout(function() {
+        addMessage(
+          'What can I help you with?',
+          'bot'
+        );
+      }, 600);
+
+      // =========================================
+      // Navigation scroll effect
+      // =========================================
+
+      var navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // Mobile menu toggle
+      document.getElementById('mobileToggle')?.addEventListener('click', function() {
+        document.getElementById('navLinks')?.classList.toggle('open');
+      });
+
+      // =========================================
+      // Scroll reveal animation
+      // =========================================
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+    })();
+  </script>
+</body>
+</html>
