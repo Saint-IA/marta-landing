@@ -1568,6 +1568,7 @@
         try {
           var res = await fetch(WEBHOOK_URL, {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               session_id: sessionId,
